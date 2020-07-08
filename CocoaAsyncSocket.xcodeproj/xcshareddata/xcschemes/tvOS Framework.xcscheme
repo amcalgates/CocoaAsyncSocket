@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "7D8B70C31BCFA15700D8E273"
-               BuildableName = "CocoaAsyncSocket.framework"
+               BuildableName = "DWCocoaAsyncSocket.framework"
                BlueprintName = "tvOS CocoaAsyncSocket"
                ReferencedContainer = "container:CocoaAsyncSocket.xcodeproj">
             </BuildableReference>
@@ -44,7 +44,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "7D8B70C31BCFA15700D8E273"
-            BuildableName = "CocoaAsyncSocket.framework"
+            BuildableName = "DWCocoaAsyncSocket.framework"
             BlueprintName = "tvOS CocoaAsyncSocket"
             ReferencedContainer = "container:CocoaAsyncSocket.xcodeproj">
          </BuildableReference>
@@ -60,7 +60,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "7D8B70C31BCFA15700D8E273"
-            BuildableName = "CocoaAsyncSocket.framework"
+            BuildableName = "DWCocoaAsyncSocket.framework"
             BlueprintName = "tvOS CocoaAsyncSocket"
             ReferencedContainer = "container:CocoaAsyncSocket.xcodeproj">
          </BuildableReference>
