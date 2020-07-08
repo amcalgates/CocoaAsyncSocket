@@ -26,13 +26,13 @@
 
 /* Begin PBXFileReference section */
 		6C55C7D11B7838B1006A7440 /* CocoaAsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CocoaAsyncSocket.h; path = Source/CocoaAsyncSocket.h; sourceTree = SOURCE_ROOT; };
-		6CD990101B77868C0011A685 /* CocoaAsyncSocket.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CocoaAsyncSocket.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6CD990101B77868C0011A685 /* DWCocoaAsyncSocket.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DWCocoaAsyncSocket.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6CD990151B77868C0011A685 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; name = Info.plist; path = Source/Info.plist; sourceTree = "<group>"; };
 		6CD9902C1B7789680011A685 /* GCDAsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GCDAsyncSocket.h; path = Source/GCD/GCDAsyncSocket.h; sourceTree = SOURCE_ROOT; };
 		6CD9902D1B7789680011A685 /* GCDAsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GCDAsyncSocket.m; path = Source/GCD/GCDAsyncSocket.m; sourceTree = SOURCE_ROOT; };
 		6CD9902E1B7789680011A685 /* GCDAsyncUdpSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GCDAsyncUdpSocket.h; path = Source/GCD/GCDAsyncUdpSocket.h; sourceTree = SOURCE_ROOT; };
 		6CD9902F1B7789680011A685 /* GCDAsyncUdpSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GCDAsyncUdpSocket.m; path = Source/GCD/GCDAsyncUdpSocket.m; sourceTree = SOURCE_ROOT; };
-		7D8B70C41BCFA15700D8E273 /* CocoaAsyncSocket.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CocoaAsyncSocket.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7D8B70C41BCFA15700D8E273 /* DWCocoaAsyncSocket.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DWCocoaAsyncSocket.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FC41F131B9D965000578BEB /* CocoaAsyncSocket.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CocoaAsyncSocket.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -72,9 +72,9 @@
 		6CD990111B77868C0011A685 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				6CD990101B77868C0011A685 /* CocoaAsyncSocket.framework */,
+				6CD990101B77868C0011A685 /* DWCocoaAsyncSocket.framework */,
 				9FC41F131B9D965000578BEB /* CocoaAsyncSocket.framework */,
-				7D8B70C41BCFA15700D8E273 /* CocoaAsyncSocket.framework */,
+				7D8B70C41BCFA15700D8E273 /* DWCocoaAsyncSocket.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -152,7 +152,7 @@
 			);
 			name = "iOS CocoaAsyncSocket";
 			productName = CocoaAsyncSocket;
-			productReference = 6CD990101B77868C0011A685 /* CocoaAsyncSocket.framework */;
+			productReference = 6CD990101B77868C0011A685 /* DWCocoaAsyncSocket.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		7D8B70C31BCFA15700D8E273 /* tvOS CocoaAsyncSocket */ = {
@@ -170,7 +170,7 @@
 			);
 			name = "tvOS CocoaAsyncSocket";
 			productName = "tvOS CocoaAsyncSocket";
-			productReference = 7D8B70C41BCFA15700D8E273 /* CocoaAsyncSocket.framework */;
+			productReference = 7D8B70C41BCFA15700D8E273 /* DWCocoaAsyncSocket.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		9FC41F121B9D965000578BEB /* Mac CocoaAsyncSocket */ = {
@@ -446,7 +446,7 @@
 					"@loader_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.robbiehanson.CocoaAsyncSocket;
-				PRODUCT_NAME = "$(PROJECT_NAME)";
+				PRODUCT_NAME = DWCocoaAsyncSocket;
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
@@ -468,7 +468,7 @@
 					"@loader_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.robbiehanson.CocoaAsyncSocket;
-				PRODUCT_NAME = "$(PROJECT_NAME)";
+				PRODUCT_NAME = DWCocoaAsyncSocket;
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
@@ -489,8 +489,8 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.robbiehanson.CocoaAsyncSocket;
-				PRODUCT_NAME = "$(PROJECT_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.robbiehanson.DWCocoaAsyncSocket;
+				PRODUCT_NAME = DWCocoaAsyncSocket;
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 3;
@@ -514,8 +514,8 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.robbiehanson.CocoaAsyncSocket;
-				PRODUCT_NAME = "$(PROJECT_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.robbiehanson.DWCocoaAsyncSocket;
+				PRODUCT_NAME = DWCocoaAsyncSocket;
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 3;
@@ -546,7 +546,7 @@
 					"@loader_path/Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				PRODUCT_BUNDLE_IDENTIFIER = com.robbiehanson.CocoaAsyncSocket;
+				PRODUCT_BUNDLE_IDENTIFIER = com.robbiehanson.DWCocoaAsyncSocket;
 				PRODUCT_NAME = "$(PROJECT_NAME)";
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
@@ -572,7 +572,7 @@
 					"@loader_path/Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				PRODUCT_BUNDLE_IDENTIFIER = com.robbiehanson.CocoaAsyncSocket;
+				PRODUCT_BUNDLE_IDENTIFIER = com.robbiehanson.DWCocoaAsyncSocket;
 				PRODUCT_NAME = "$(PROJECT_NAME)";
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
