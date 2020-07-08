@@ -854,10 +854,10 @@ enum DWGCDAsyncSocketConfig
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 /**
- * The GCDAsyncSpecialPacket encompasses special instructions for interruptions in the read/write queues.
+ * The DWGCDAsyncSpecialPacket encompasses special instructions for interruptions in the read/write queues.
  * This class my be altered to support more than just TLS in the future.
 **/
-@interface GCDAsyncSpecialPacket : NSObject
+@interface DWGCDAsyncSpecialPacket : NSObject
 {
   @public
 	NSDictionary *tlsSettings;
@@ -865,7 +865,7 @@ enum DWGCDAsyncSocketConfig
 - (instancetype)initWithTLSSettings:(NSDictionary <NSString*,NSObject*>*)settings NS_DESIGNATED_INITIALIZER;
 @end
 
-@implementation GCDAsyncSpecialPacket
+@implementation DWGCDAsyncSpecialPacket
 
 // Cover the superclass' designated initializer
 - (instancetype)init NS_UNAVAILABLE
@@ -4660,9 +4660,9 @@ enum DWGCDAsyncSocketConfig
 			[readQueue removeObjectAtIndex:0];
 			
 			
-			if ([currentRead isKindOfClass:[GCDAsyncSpecialPacket class]])
+			if ([currentRead isKindOfClass:[DWGCDAsyncSpecialPacket class]])
 			{
-				LogVerbose(@"Dequeued GCDAsyncSpecialPacket");
+				LogVerbose(@"Dequeued DWGCDAsyncSpecialPacket");
 				
 				// Attempt to start TLS
 				flags |= kStartingReadTLS;
@@ -5970,9 +5970,9 @@ enum DWGCDAsyncSocketConfig
 			[writeQueue removeObjectAtIndex:0];
 			
 			
-			if ([currentWrite isKindOfClass:[GCDAsyncSpecialPacket class]])
+			if ([currentWrite isKindOfClass:[DWGCDAsyncSpecialPacket class]])
 			{
-				LogVerbose(@"Dequeued GCDAsyncSpecialPacket");
+				LogVerbose(@"Dequeued DWGCDAsyncSpecialPacket");
 				
 				// Attempt to start TLS
 				flags |= kStartingWriteTLS;
@@ -6086,7 +6086,7 @@ enum DWGCDAsyncSocketConfig
 		return;
 	}
 	
-	// Note: This method is not called if currentWrite is a GCDAsyncSpecialPacket (startTLS packet)
+	// Note: This method is not called if currentWrite is a DWGCDAsyncSpecialPacket (startTLS packet)
 	
 	BOOL waiting = NO;
 	NSError *error = nil;
@@ -6546,7 +6546,7 @@ enum DWGCDAsyncSocketConfig
         tlsSettings = [NSDictionary dictionary];
     }
 	
-	GCDAsyncSpecialPacket *packet = [[GCDAsyncSpecialPacket alloc] initWithTLSSettings:tlsSettings];
+	DWGCDAsyncSpecialPacket *packet = [[DWGCDAsyncSpecialPacket alloc] initWithTLSSettings:tlsSettings];
 	
 	dispatch_async(socketQueue, ^{ @autoreleasepool {
 		
@@ -6578,7 +6578,7 @@ enum DWGCDAsyncSocketConfig
 		
 		#if TARGET_OS_IPHONE
 		{
-			GCDAsyncSpecialPacket *tlsPacket = (GCDAsyncSpecialPacket *)currentRead;
+			DWGCDAsyncSpecialPacket *tlsPacket = (DWGCDAsyncSpecialPacket *)currentRead;
             NSDictionary *tlsSettings = @{};
             if (tlsPacket) {
                 tlsSettings = tlsPacket->tlsSettings;
@@ -6851,7 +6851,7 @@ static OSStatus SSLWriteFunction(SSLConnectionRef connection, const void *data, 
 	
 	OSStatus status;
 	
-	GCDAsyncSpecialPacket *tlsPacket = (GCDAsyncSpecialPacket *)currentRead;
+	DWGCDAsyncSpecialPacket *tlsPacket = (DWGCDAsyncSpecialPacket *)currentRead;
 	if (tlsPacket == nil) // Code to quiet the analyzer
 	{
 		NSAssert(NO, @"Logic error");
@@ -7545,10 +7545,10 @@ static OSStatus SSLWriteFunction(SSLConnectionRef connection, const void *data, 
 		return;
 	}
 	
-	NSAssert([currentRead isKindOfClass:[GCDAsyncSpecialPacket class]], @"Invalid read packet for startTLS");
-	NSAssert([currentWrite isKindOfClass:[GCDAsyncSpecialPacket class]], @"Invalid write packet for startTLS");
+	NSAssert([currentRead isKindOfClass:[DWGCDAsyncSpecialPacket class]], @"Invalid read packet for startTLS");
+	NSAssert([currentWrite isKindOfClass:[DWGCDAsyncSpecialPacket class]], @"Invalid write packet for startTLS");
 	
-	GCDAsyncSpecialPacket *tlsPacket = (GCDAsyncSpecialPacket *)currentRead;
+	DWGCDAsyncSpecialPacket *tlsPacket = (DWGCDAsyncSpecialPacket *)currentRead;
 	CFDictionaryRef tlsSettings = (__bridge CFDictionaryRef)tlsPacket->tlsSettings;
 	
 	// Getting an error concerning kCFStreamPropertySSLSettings ?
