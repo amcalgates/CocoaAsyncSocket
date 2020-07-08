@@ -172,7 +172,7 @@ typedef BOOL (^DWGCDAsyncUdpSocketSendFilterBlock)(NSData *data, NSData *address
  * use the socket, or you will get an error.
  * 
  * The socket queue is optional.
- * If you pass NULL, GCDAsyncSocket will automatically create its own socket queue.
+ * If you pass NULL, DWGCDAsyncSocket will automatically create its own socket queue.
  * If you choose to provide a socket queue, the socket queue must not be a concurrent queue,
  * then please see the discussion for the method markSocketQueueTargetQueue.
  *
@@ -847,7 +847,7 @@ typedef BOOL (^DWGCDAsyncUdpSocketSendFilterBlock)(NSData *data, NSData *address
 
 #pragma mark Advanced
 /**
- * GCDAsyncSocket maintains thread safety by using an internal serial dispatch_queue.
+ * DWGCDAsyncSocket maintains thread safety by using an internal serial dispatch_queue.
  * In most cases, the instance creates this queue itself.
  * However, to allow for maximum flexibility, the internal queue may be passed in the init method.
  * This allows for some advanced options such as controlling socket priority via target queues.
@@ -899,7 +899,7 @@ typedef BOOL (^DWGCDAsyncUdpSocketSendFilterBlock)(NSData *data, NSData *address
  * Additionally, networking traffic from a single IP cannot monopolize the module.
  *
  * Here's how you would accomplish something like that:
- * - (dispatch_queue_t)newSocketQueueForConnectionFromAddress:(NSData *)address onSocket:(GCDAsyncSocket *)sock
+ * - (dispatch_queue_t)newSocketQueueForConnectionFromAddress:(NSData *)address onSocket:(DWGCDAsyncSocket *)sock
  * {
  *     dispatch_queue_t socketQueue = dispatch_queue_create("", NULL);
  *     dispatch_queue_t ipQueue = [self ipQueueForAddress:address];
@@ -909,7 +909,7 @@ typedef BOOL (^DWGCDAsyncUdpSocketSendFilterBlock)(NSData *data, NSData *address
  *
  *     return socketQueue;
  * }
- * - (void)socket:(GCDAsyncSocket *)sock didAcceptNewSocket:(GCDAsyncSocket *)newSocket
+ * - (void)socket:(DWGCDAsyncSocket *)sock didAcceptNewSocket:(DWGCDAsyncSocket *)newSocket
  * {
  *     [clientConnections addObject:newSocket];
  *     [newSocket markSocketQueueTargetQueue:moduleQueue];
